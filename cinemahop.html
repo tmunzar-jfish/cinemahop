@@ -1,0 +1,80 @@
+<head>
+  <title>cinemahop</title>
+</head>
+
+<body>
+
+</body>
+
+
+<template name="header">
+	<div id ="header">
+		<div class="logo">
+			<a href="/">
+				<img src="img/logo.png" />
+			</a>
+		</div>
+		<nav>
+			<a href="#" class="by-movie active" >By Movie</a>
+			<a href="#">By Cinema</a>
+			<a href="#">By Time</a>
+		</nav>
+	</div>
+</template>
+
+
+<template name="movie">
+	<div class="movie">
+		<div class="inner">
+			<div class="poster">
+				{{#with FS.GetFile "posters" poster}}
+				  <img src="{{this.url}}" alt="">
+				{{/with}}
+			</div>
+			<div class="detail">
+				<div class="title">
+					<h3>{{name}}</h3>
+				</div>
+				<div class="action-box">
+					<p class="description">
+						{{description}}
+					</p>
+					<div class="actions">
+						<div class="action trailer">
+							<h5 class="rating">
+								<i class="icon-play"></i>
+							</h5>
+							<h6>Trailer</h6>
+						</div>
+						<div class="action imdb">
+							<h5 class="rating">7.2</h5>
+							<h6>IMDb Rating</h6>
+						</div>
+						<div class="action tomato">
+							<h5 class="rating">60%</h5>
+							<h6>Tomatometer</h6>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>	
+</template>
+
+
+<template name="home">
+	<div id="wrapper">
+		{{>header}}
+		<div id="container">
+			<div class="movie-list">
+				{{#each movies}}
+			        {{>movie}}
+		      	{{/each}}
+			</div>
+		</div>
+	</div>
+</template>
+
+<template name="login">
+	{{> loginButtons}}
+</template>
