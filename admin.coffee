@@ -9,12 +9,13 @@
 					{ label:'Movie', name:'movieTitle()' }
 					{ label:'Showtime', name:'show_time' }
 			]
+			extraFields: [ "movie_id" ]
 			children: [
-        find: (movieTimingDoc)->
-          if SimpleSchema.RegEx.Id.test movieTimingDoc.movie_id
-              Movies.find movieTimingDoc.movie_id
-          else @ready()
-      ]
+				find: (movieTimingDoc) ->
+					if SimpleSchema.RegEx.Id.test movieTimingDoc.movie_id
+						Movies.find movieTimingDoc.movie_id
+					else @ready()
+			]
 		Cities:
 			icon: 'building-o'
 			tableColumns: [
